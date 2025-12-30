@@ -1,6 +1,6 @@
 
 const BOT_TOKEN = ''; // Set your tg bot token
-const AR_HOSTING_API = 'https://ar-hosting.pages.dev/upload';
+const AR_HOSTING_API = 'https://arsyhost.pages.dev/upload';
 const BASE_URL = `https://api.telegram.org/bot${BOT_TOKEN}`;
 const MAX_FILE_SIZE = 20 * 1024 * 1024;
 
