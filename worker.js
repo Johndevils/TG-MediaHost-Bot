@@ -7,14 +7,14 @@ const MAX_FILE_SIZE = 20 * 1024 * 1024;
 const START_TEXT = (username) => `Hello ${username},
 I am a media/file uploader bot (up to 20MB) that uploads to AR Hosting.
 
-Maintained by @Ashlynn_Repository`;
+Maintained by @Arsynox`;
 
 const ST_TEXT = `--**START**--
 
 - I am a media/file uploader bot (up to 20MB) that uploads to AR Hosting
 - I'll upload it to AR Hosting and give you the direct URL
 - Supported formats: Images (JPG, PNG, GIF), Videos (MP4, MOV), Documents (PDF, etc.)
-- Maintained by [Ashlynn Repository](https://t.me/Ashlynn_Repository)`;
+- Maintained by [Arsynox](https://t.me/codexhelps_bot)`;
 
 const HELP_TEXT = `--**Help**--
 
@@ -26,15 +26,15 @@ const HELP_TEXT = `--**Help**--
 const ABOUT_TEXT = `--**About Me**--
 
 - **Bot**: \`AR Hosting Uploader\`
-- **Maintainer**: [Ashlynn Repository](https://t.me/Ashlynn_Repository)
-- **Hosting**: [AR Hosting](https://ar-hosting.pages.dev)
+- **Maintainer**: [Ashlynn Repository](https://t.me/codexhelps_bot)
+- **Hosting**: [AR Hosting](https://arsyhost.pages.dev/)
 - **Platform**: [Cloudflare Workers](https://workers.cloudflare.com)
 - **Max File Size**: 20MB`;
 
 // Button layouts
 const START_BUTTONS = {
     inline_keyboard: [
-        [{ text: 'Contact', url: 'https://t.me/Ashlynn_Repository' }],
+        [{ text: 'Contact', url: 'https://t.me/codexhelps_bot' }],
         [
             { text: 'Help', callback_data: 'help' },
             { text: 'About', callback_data: 'about' },
