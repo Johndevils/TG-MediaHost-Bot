@@ -5,36 +5,36 @@ const BASE_URL = `https://api.telegram.org/bot${BOT_TOKEN}`;
 const MAX_FILE_SIZE = 20 * 1024 * 1024;
 
 const START_TEXT = (username) => `Hello ${username},
-I am a media/file uploader bot (up to 20MB) that uploads to AR Hosting.
+I am a media/file uploader bot (up to 20MB) that uploads to Arsy Host.
 
-Maintained by @Ashlynn_Repository`;
+Maintained by Arsynox`;
 
 const ST_TEXT = `--**START**--
 
-- I am a media/file uploader bot (up to 20MB) that uploads to AR Hosting
-- I'll upload it to AR Hosting and give you the direct URL
+- I am a media/file uploader bot (up to 20MB) that uploads to Arsy Host
+- I'll upload it to Arsy Host and give you the direct URL
 - Supported formats: Images (JPG, PNG, GIF), Videos (MP4, MOV), Documents (PDF, etc.)
-- Maintained by [Ashlynn Repository](https://t.me/Ashlynn_Repository)`;
+- Maintained by [Arsynox](https://t.me/codexhelps_bot)`;
 
 const HELP_TEXT = `--**Help**--
 
 - Send me any media file under 20MB
-- I'll upload it to AR Hosting and give you the direct URL
+- I'll upload it to Arsy Host and give you the direct URL
 - Supported formats: Images (JPG, PNG, GIF), Videos (MP4, MOV), Documents (PDF, etc.)
 - Max file size: 20MB`;
 
 const ABOUT_TEXT = `--**About Me**--
 
-- **Bot**: \`AR Hosting Uploader\`
-- **Maintainer**: [Ashlynn Repository](https://t.me/Ashlynn_Repository)
-- **Hosting**: [AR Hosting](https://ar-hosting.pages.dev)
+- **Bot**: \`Arsy Host Uploader\`
+- **Maintainer**: [Arsynox](https://t.me/codexhelps_bot)
+- **Hosting**: [Arsy Host](https://arsyhost.pages.dev)
 - **Platform**: [Cloudflare Workers](https://workers.cloudflare.com)
 - **Max File Size**: 20MB`;
 
 // Button layouts
 const START_BUTTONS = {
     inline_keyboard: [
-        [{ text: 'Contact', url: 'https://t.me/Ashlynn_Repository' }],
+        [{ text: 'Contact', url: 'https://t.me/codexhelps_bot' }],
         [
             { text: 'Help', callback_data: 'help' },
             { text: 'About', callback_data: 'about' },
@@ -80,15 +80,15 @@ async function uploadToARHosting(fileBuffer, fileName) {
         method: 'POST',
         headers: {
             'Accept': '*/*',
-            'Origin': 'https://ar-hosting.pages.dev',
-            'Referer': 'https://ar-hosting.pages.dev/',
+            'Origin': 'https://arsyhost.pages.dev',
+            'Referer': 'https://arsyhost.pages.dev/',
             'User-Agent': 'Cloudflare Worker Telegram Bot'
         },
         body: formData
     });
     
     if (!response.ok) {
-        throw new Error(`AR Hosting responded with status ${response.status}`);
+        throw new Error(`Arsy Host responded with status ${response.status}`);
     }
     
     const result = await response.json();
@@ -221,7 +221,7 @@ async function handleUpdate(update) {
                             { text: 'Share Link', url: shareUrl }
                         ],
                         [
-                            { text: 'Contact', url: 'https://t.me/Ashlynn_Repository' }
+                            { text: 'Contact', url: 'https://t.me/codexhelps_bot' }
                         ]
                     ]
                 };
@@ -229,7 +229,7 @@ async function handleUpdate(update) {
                 await callTelegramAPI('editMessageText', {
                     chat_id: message.chat.id,
                     message_id: processingMsg.result.message_id,
-                    text: `✅ File uploaded successfully!\n\n𝗗𝗶𝗿𝗲𝗰𝘁 𝗨𝗥𝗟: ${hostedUrl}\n\nMaintained by @Ashlynn_Repository`,
+                    text: `✅ File uploaded successfully!\n\n𝗗𝗶𝗿𝗲𝗰𝘁 𝗨𝗥𝗟: ${hostedUrl}\n\nMaintained by Arsynox`,
                     reply_markup: resultButtons,
                     disable_web_page_preview: true
                 });
@@ -240,7 +240,7 @@ async function handleUpdate(update) {
                 await callTelegramAPI('editMessageText', {
                     chat_id: message.chat.id,
                     message_id: processingMsg.result.message_id,
-                    text: `❌ Upload failed: ${error.message}\n\nTry again or contact @Ashlynn_Repository for help.`,
+                    text: `❌ Upload failed: ${error.message}\n\nTry again or contact Arsynox for help.`,
                     disable_web_page_preview: true
                 });
             }
